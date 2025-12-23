@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+
+/* --- Reset --- */
+
+
+
+@keyframes fadeIn {
+0% { opacity: 0; transform: translateY(150px); }
+100% { opacity: 100; transform: translateY(0); }
+}
+
+@keyframes navv{
+0%{ opacity: 0; transform: translateY(-100px);}
+100%{opacity: 100;transform: translateX(0);}
+}
+
+
+@keyframes origg{
+0%{ opacity: 0; transform: translateX(-150px);}
+100%{opacity: 100;transform: translateX(0);}
+}
+
+.container{
+height: 60vh;
+width: 30vw;
+background: rgba(255, 255, 255, 0.9);
+margin: auto;
+margin-top: 10%;
+border: 2px solid black;
+border-radius: 12px;
+animation: fadeIn 1s ease-in-out forwards;
+}
+
+
+body{
+background: linear-gradient(135deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+
+
+}
+h1{
+animation: subb 3s ease-in-out forwards;
+}
+.navbar{
+height: 8vh;
+width: 30vw;
+background: #1e3c72;
+display: flex;
+align-items: center;
+color: white;
+justify-content: center;
+animation: navv 1s ease-in-out forwards;
+}
+.orgin{
+height: 40vh;
+width: 29vw;
+background: rgba(255, 255, 255, 0.9);
+padding-left: 10px;
+animation: origg 1s ease-in-out forwards;
+
+}
+.name{
+height: 4vh;
+width: 21vw;
+border: 2px solid rgb(193, 220, 220);
+background-color: azure;
+border-radius: 6px;
+margin: 6px 0;
+}
+.submisson{
+width: 13vw;
+height: 6vh;
+margin-left: 25%;
+margin-top: 3%;
+border-radius: 18px;
+background-color:#4272f9;
+color: white;
+cursor: pointer;
+border: none;
+
+}
+.submisson:hover{
+background-color: #2a53c5;
+transition: 0.3s ease-in;
+}
+
+
+.nav{
+border: 0px solid black;
+height: 10vh;
+width: 100vw;
+margin: auto;
+background-color: #1e3d73;
+margin-top: -8px;
+margin-left: -8px;
+display: flex;
+justify-content: center;
+align-items: center;
+animation: nvv 4s ease-in forwards;
+
+}
+.nav ul {
+list-style: none;
+display: flex;
+gap: 40px;
+margin: 0;
+padding: 0;
+}
+
+.nav li a{
+color: white;
+font-weight:800;
+font-size: 18px;
+text-decoration: none;
+
+}
+.nav li a:hover{
+color: #ffcc00;
+cursor: pointer;
+transition: 0.8s ease-in;
+}
+ 
+ 
+ 
+    </style>
+</head>
+<body>
+
+   <div class="nav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/viewabout">About</a></li>
+        <li><a href="/viewproducts">Products</a></li>
+        <li><a href="/fillform">Contact</a></li>
+      </ul>
+    </div>
+
+
+
+
+    <div class="container">
+
+        <div class="navbar">
+         <h1>Registration</h1>
+        </div>
+
+        <div class="orgin">
+            <form action="/form" method="post">
+                Name <br>
+                <input type="text" class="name" name="name" placeholder="Enter your name">
+
+                <br> Father Name <br>
+                <input type="text" class="name" name="fathername" placeholder="Enter your Father name">
+
+                <br> Email Address <br>
+                <input type="email" class="name" name="email" placeholder="Enter your email">
+
+                <br> Department Name <br>
+                <input type="text" class="name" name="dept" placeholder="Enter your dept name">
+
+                <br><button class="submisson" type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

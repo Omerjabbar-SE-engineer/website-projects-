@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .product-details {
+        width: 90%;
+        max-width: 500px;
+        margin: 30px auto;
+        text-align: center;
+      }
+      .product-details img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+    </style>
+</head>
+<body>
+
+    <div id="product-container"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const title = params.get('title');
+        const image = params.get('image');
+        const desc  = params.get('desc');
+        const price = params.get('price');
+
+        document.getElementById("product-container").innerHTML = `
+            <div class="product-details">
+                <img src="${image}" alt="${title}">
+                <h1>${title}</h1>
+                <h3>${price}</h3>
+                <p>${desc}</p>
+            </div>
+        `;
+    </script>
+
+</body>
+</html>

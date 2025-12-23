@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Luma Threads</title>
+    <style>
+@keyframes vibrantGradient {
+    0% {
+        background: linear-gradient(135deg, #ff6ec7, #5b2ee1);
+    }
+    10% {
+        background: linear-gradient(135deg, #ff3c78, #9b30ff);
+    }
+    20% {
+        background: linear-gradient(135deg, #ff0080, #8e44ad);
+    }
+    30% {
+        background: linear-gradient(135deg, #ff4c00, #d633ff);
+    }
+    40% {
+        background: linear-gradient(135deg, #ff6f00, #c700ff);
+    }
+    50% {
+        background: linear-gradient(135deg, #ff0099, #7f00ff);
+    }
+    60% {
+        background: linear-gradient(135deg, #ff3366, #a100ff);
+    }
+    70% {
+        background: linear-gradient(135deg, #ff00cc, #6a0dad);
+    }
+    80% {
+        background: linear-gradient(135deg, #ff0055, #9b00ff);
+    }
+    90% {
+        background: linear-gradient(135deg, #ff3399, #7a00ff);
+    }
+    100% {
+        background: linear-gradient(135deg, #ff6ec7, #5b2ee1); /* loop back */
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation: vibrantGradient 1s ease infinite;
+}
+
+
+        .login-box {
+            background: rgba(0,0,0,0.6);
+            padding: 80px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow:inset
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            border-radius: 15px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 15px;
+            background-color: #ffcc00;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="/" method="POST">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+</body>
+</html>
