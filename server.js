@@ -1,75 +1,42 @@
 const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
 const app = express();
+const cors = require('cors');
+const mongoose = require('mongoose');
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/mybrand', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => console.log('MongoDB connected'))
-.catch((err) => console.log('MongoDB connection error:', err));
-
-
-const formSchema = new mongoose.Schema({
-    name: String,
-    fathername: String,
-    email: String,
-    deptname: String
-});
-const Form = mongoose.model('Form', formSchema);
-
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
-const port = 3000;
+const port = 5000;
 
+// Connect to MongoDB  we put the fcomnmnection of the  moongo data base here that we msake in the app or extention
+mongoose.connect('mongodb://localhost:27017/passwordManager')
+
+// Define schema and model how the form data shows
+const userSchema = new mongoose.Schema({
+  weburl: String,
+  name: String,
+  password: String
+});
+
+const User = mongoose.model('User', userSchema);
+
+// Optional GET route (can leave empty if you don’t need it)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
-
-});
-app.post('/',(req,res)=>{
-    const {username,password}=req.body;
-    if(username=='omer'&& password=='1234'){
-res.redirect('/home');
-    }
-    else{
-        res.send("wrong data username or password")
-    }
-})
-
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontpage.html'));
+  res.send('Hello World!');
 });
 
+// POST route to save data
+app.post('/submitted', async (req, res) => {
+  const { weburl, name, password } = req.body;
 
-app.get('/fillform', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-
-app.post('/form', async (req, res) => {
-    try {
-        const formData = new Form(req.body);
-        await formData.save();   
-        res.send("Data submitted successfully!");
-    } catch(err) {
-        console.error(err);
-        res.status(500).send("Error saving data");
-    }
-});
-
-app.get('/viewabout',(req,res)=>{
-  res.sendFile(path.join(__dirname,'aboutprod.html'))
-})
-
-
-app.get('/viewproducts', (req, res) => {
-    res.sendFile(path.join(__dirname, 'viewproducts.html'));
+    const newUser = new User({ weburl, name, password });
+    
+    await newUser.save(); // Save to MongoDB
+    console.log('Data received:', req.body);
+    res.json({ message: 'Data submitted successfully' });
+  
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+  console.log(`Example app listening on port ${port}`);
 });
